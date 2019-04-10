@@ -27,7 +27,7 @@ class List extends Component{
             <li className="guest-infobox" key={guest.index}>
                 <div className="col-8">
                     <div className="block">
-                        <p>Гость <strong>{guest.name}</strong> работает в компании
+                        <p className={this.state.arrived ? '' : 'linethrough'}>Гость <strong>{guest.name}</strong> работает в компании
                         <span className="company"> "{guest.company}"</span><br/>
                         Его контакты:<br/>
                         <strong>{guest.phone};<br/>{guest.address};</strong></p>
@@ -36,7 +36,7 @@ class List extends Component{
                   <div className="col-4">
                     <div className="block">
                         <button className={this.state.arrived ? 'arrived' : 'notarrived'} onClick={this.changeState}>
-                            {this.state.arrived ? 'Прибыл' : 'Ожидаем'}
+                            Прибыл
                         </button>
                     </div>
                 </div>

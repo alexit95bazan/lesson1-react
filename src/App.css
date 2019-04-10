@@ -32,6 +32,10 @@ h1 span{
   z-index: 0;
 }
 
+.linethrough{
+  text-decoration: line-through;
+}
+
 .app-list ul{
   padding: 5px 40px;
   float: left;
