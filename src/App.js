@@ -18,7 +18,7 @@ class App extends Component {
   
   updateSearch(e){
     this.setState({
-      search: e.target.value.substr(0,15)
+      search: e.target.value
     });
   }
   
@@ -46,7 +46,7 @@ class App extends Component {
             </div>
             <div className="col-4">
               <div className="block">
-                <button className="search">
+                <button className="search" onClick={this.updateSearch}>
                   <img src={searchIcon} alt={"Поиск"}/>
                 </button>
               </div>
@@ -57,12 +57,11 @@ class App extends Component {
               placeholder="Введите имя гостя для поиска" 
               className="search-input"
               type="text" 
-              id="filter" 
-              value={this.state.search} 
-              onChange={this.updateSearch.bind(this)}/>
+              onChange={this.updateSearch.bind(this)} 
+              value={this.state.search} />
           </div>
           <ul>
-          { filteredGuests }
+          {filteredGuests.length ? filteredGuests : <p>Гостя с таким именем нет</p>}
           </ul>
         </div>
       </div>
