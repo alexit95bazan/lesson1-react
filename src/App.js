@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import guests from './guests.json';
+import contacts from './guests.json';
 import searchIcon from './zoom.png' 
 
 import List from './List.js';
-import Search from './Search.js';
 
 class App extends Component {
 
@@ -12,31 +11,29 @@ class App extends Component {
     super(props);
 
     this.state = {
-      guests: [],
-      filtered: []
+      guests: contacts,
+      search: ""
     }
   }
   
-  componentWillMount() {
+  updateSearch(e){
     this.setState({
-      guests,
-      filteredPoets: guests
-    })
+      search: e.target.value.substr(0,15)
+    });
   }
-
-  filterPoets = (guestsFilter) => {
-    let filtered = this.state.guests
-    filtered = filtered.filter((guests) => {
-      let guestName = guests.name.toLowerCase() + guests.phone.toLowerCase()
-      return guestName.indexOf(guestsFilter.toLowerCase()) !== -1
-    })
-    this.setState({
-      filtered
-    })
-  }
-
+  
   render() {
-    const { guests } = this.state;
+    const { guests, search } = this.state;
+    
+    const filteredGuests = guests
+    .filter(guests => {
+      return guests.name.toLowerCase().indexOf(search.toLowerCase()) >= 0
+    })
+    .map( 
+      guest => (
+        <List guest={guest} key={guest.index} onChange={this.filterGuests}/>
+      )
+    )
 
     return (
       <div className="app">
@@ -56,10 +53,16 @@ class App extends Component {
             </div>
           </header>
           <div className="search-box">
-            <Search/>
+            <input 
+              placeholder="Введите имя гостя для поиска" 
+              className="search-input"
+              type="text" 
+              id="filter" 
+              value={this.state.search} 
+              onChange={this.updateSearch.bind(this)}/>
           </div>
           <ul>
-          { guests.map( guest => (<List guest={guest} key={guest.index} onChange={this.filterGuests}/>)) }
+          { filteredGuests }
           </ul>
         </div>
       </div>

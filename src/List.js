@@ -22,7 +22,6 @@ class List extends Component{
 
     render(){
         const { guest } = this.props;
-        
         return (
             <li className="guest-infobox" key={guest.index}>
                 <div className="col-8">
