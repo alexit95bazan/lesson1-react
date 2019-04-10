@@ -1,33 +1,124 @@
-.App {
+.app {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #ededed;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.app-list {
+  width: 750px;
+  background: white; 
+  margin: 30px 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1{
+  text-align: left;
+  padding-left: 25px;
+  font-size: 60px;
+  z-index: 20;
+  font-weight: bold;
+}
+
+h1 span{
+  color: red;
+  position: absolute;
+  font-size: 19px;
+  text-decoration: line-through;
+  transform: rotate(-8deg);
+  margin-left: -70px;
+  margin-top: 10px;
+  z-index: 0;
+}
+
+.app-list ul{
+  padding: 5px 40px;
+  float: left;
+  widows: 100%;
+}
+
+.guest-infobox{
+  transition: 0.2s; 
+  list-style: none;
+  text-align: left;
+  float: left;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.guest-infobox:hover{
+  background: #f6f6f6;
+}
+
+.col-8{
+  float: left;
+  width: 74%;
+}
+
+.col-4{
+  float: left;
+  width: 26%;
+}
+
+.block button{
+  color: black;
+  padding: 9px 30px;
+  border: none;
+  border-radius: 2px;
+  margin: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: 0.2s;
+  white-space: pre;
+}
+
+.arrived{
+  background: #94c11e;
+}
+
+.notarrived{
+  background: #ffde00;
+}
+
+.arrived, .notarrived:hover{
+  opacity: 0.88;
+}
+
+.search-input{
+  background: #ededed;
+  border: none;
+  width: calc(100% - 40px);
+  font-size: 17px;
+  border-radius: 3px;
+  padding: 10px 20px;
+}
+
+.search-input::placeholder {
+  color: #9c9c9c;
+}
+
+.search-box{
+  margin:0px 40px;
+}
+
+.search{
+  background: #ffde00;
+  padding: 10px 15px !important;
+  float: right;
+  margin: 50px 20px !important;
+}
+
+.search img{
+  width: 35px;
+  height: 35px;
+}
+
+.company{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.block{
+  padding: 0px 20px;
 }
