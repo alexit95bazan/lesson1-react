@@ -46,7 +46,7 @@ class App extends Component {
             </div>
             <div className="col-4">
               <div className="block">
-                <button className="search" onClick={this.updateSearch}>
+                <button className="search">
                   <img src={searchIcon} alt={"Поиск"}/>
                 </button>
               </div>
